@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+
+  --shadow-soft: 0 1px 2px rgb(15 23 42 / 0.04), 0 8px 24px rgb(15 23 42 / 0.06);
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.05), 0 12px 32px rgb(15 23 42 / 0.08);
+  --shadow-elevated: 0 4px 16px rgb(15 23 42 / 0.08), 0 24px 48px rgb(15 23 42 / 0.12);
+}
+
+:root {
+  color-scheme: light;
+
+  --color-background: #f4f7fb;
+  --color-background-subtle: #eef3f9;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #ffffff;
+  --color-surface-muted: #f8fafc;
+
+  --color-border: #dbe4ef;
+  --color-border-strong: #c7d3e3;
+
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
+  --color-text-inverse: #ffffff;
+
+  --color-brand-50: #ecfdf8;
+  --color-brand-100: #d1faf0;
+  --color-brand-200: #a7f3e0;
+  --color-brand-300: #34d3b6;
+  --color-brand-400: #34d3b6;
+  --color-brand-500: #0f9d8a;
+  --color-brand-600: #0b7f71;
+  --color-brand-700: #0a655b;
+  --color-brand-800: #0b4f48;
+  --color-brand-900: #0c423d;
+
+  --color-accent: #2563eb;
+  --color-accent-soft: #eff6ff;
+
+  --color-success: #059669;
+  --color-success-soft: #ecfdf5;
+  --color-warning: #d97706;
+  --color-warning-soft: #fffbeb;
+  --color-danger: #dc2626;
+  --color-danger-soft: #fef2f2;
+  --color-info: #0284c7;
+  --color-info-soft: #f0f9ff;
+
+  --color-sidebar: #0b1f33;
+  --color-sidebar-hover: #12314f;
+  --color-sidebar-active: #164066;
+  --color-sidebar-border: rgb(255 255 255 / 0.08);
+  --color-sidebar-text: #cbd5e1;
+  --color-sidebar-text-active: #ffffff;
+
+  --focus-ring: 0 0 0 3px rgb(15 157 138 / 0.24);
+}
+
+.dark {
+  color-scheme: dark;
+
+  --color-background: #07111f;
+  --color-background-subtle: #0a1628;
+  --color-surface: #0f1b2d;
+  --color-surface-elevated: #132238;
+  --color-surface-muted: #101c2e;
+
+  --color-border: #22324a;
+  --color-border-strong: #31445f;
+
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-text-inverse: #0f172a;
+
+  --color-brand-50: #0d2f2b;
+  --color-brand-100: #0f3f39;
+  --color-brand-500: #34d3b6;
+  --color-brand-600: #5eead4;
+  --color-brand-700: #99f6e4;
+
+  --color-accent: #60a5fa;
+  --color-accent-soft: rgb(37 99 235 / 0.12);
+
+  --color-success-soft: rgb(5 150 105 / 0.12);
+  --color-warning-soft: rgb(217 119 6 / 0.12);
+  --color-danger-soft: rgb(220 38 38 / 0.12);
+  --color-info-soft: rgb(2 132 199 / 0.12);
+
+  --color-sidebar: #060f1a;
+  --color-sidebar-hover: #0c1828;
+  --color-sidebar-active: #12314f;
+  --color-sidebar-border: rgb(255 255 255 / 0.06);
+
+  --focus-ring: 0 0 0 3px rgb(52 211 182 / 0.24);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgb(15 157 138 / 0.18);
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.35s ease-out both;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.28s ease-out both;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.28s ease-out both;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.2s ease-out both;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 1.6s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s ease-in-out infinite;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  background-size: 200% 100%;
+}
